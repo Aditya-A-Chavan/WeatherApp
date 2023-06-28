@@ -1,3 +1,2 @@
 Flask==2.2.3
 Requests==2.29.0
-json>=2.0.9
