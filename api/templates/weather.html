@@ -52,15 +52,18 @@
         </form>
     </div>
     {% if weather %}
-        <div class="result">
+        <div class="result" id="openweathermap-widget-11">
             <h2>{{ weather.location }}</h2>
             <p>Temperature: {{ weather.temperature }}°C</p>
             <p>Condition: {{ weather.condition }}</p>
             <p>FeelsLike: {{ weather.FeelsLike }}°C</p>
-            <p>Maximum Temperature: {{ weather.Maxtemp }}°C</p>
-            <p>Minimum temperature: {{ weather.Mintemp }}°C</p>
+            <p>Max Temperature: {{ weather.MaxTemp }}°C</p>
+            <p>Min Temperature: {{ weather.MinTemp }}°C</p>
             <p>Latitude: {{ latitude.lat }}</p>
             <p>Longitude: {{ latitude.long }}</p>
+            <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+            <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 1,cityid: '1275339',appid: 'c70f6f3bf64ab7edc365a23b47a6f5d6',units: 'metric',containerid: 'openweathermap-widget-1',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();
+            </script>
         </div>
     </div>
     {% endif %}
