@@ -7,11 +7,12 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             text-align: center;
+            background-color: #9d9d9d;
         }
         h1 {
             color: #333;
             margin-bottom: 20px;
-            font-size: 50px;
+            font-size: 40px;
         }
         .search-box {
             margin-bottom: 10px;
@@ -19,6 +20,14 @@
         .search-box input[type="text"] {
             padding: 5px;
             width: 200px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .search-box input[type="submit"] {
             padding: 5px 10px;
@@ -33,7 +42,9 @@
     </style>
 </head>
 <body>
+    <div class="container">
     <h1>Weather App</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="search-box">
         <form action="/" method="POST">
             <input type="text" name="location" placeholder="Enter location">
@@ -47,6 +58,7 @@
             <p>Condition: {{ weather.condition }}</p>
             <p>FeelsLike: {{ weather.FeelsLike }}°C</p>
         </div>
+    </div>
     {% endif %}
 </body>
 </html>
