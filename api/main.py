@@ -10,7 +10,6 @@ def weather():
         api_key = 'c70f6f3bf64ab7edc365a23b47a6f5d6' 
         url = f'http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric'
         response = requests.get(url)
-        print(url)
         data = response.json()
         if response.status_code == 200:
             weather_data = {
