@@ -16,7 +16,9 @@ def weather():
                 'location': data['name'],
                 'temperature': round(data['main']['temp']),
                 'condition': data['weather'][0]['description'],
-                'FeelsLike': round(data['main']['feels_like'])
+                'FeelsLike': round(data['main']['feels_like']),
+                'Mintemp': round(data['main']['temp_min']),
+                'Maxtemp': round(data['main']['temp_max'])
             }
             return render_template('weather.html', weather=weather_data)
         else:
