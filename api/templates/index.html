@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
     <style>
-        body{
-            font-family: Arial, Sans, serif;
-            text-align: centre;
-            align-items: centre;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
-        h1{
-            margin-top: 50px;
-            text-align: centre;
-            align-items: centre;
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
         }
-        #search-form{
-            text-align: centre;
+        .search-box {
+            margin-bottom: 10px;
+        }
+        .search-box input[type="text"] {
+            padding: 5px;
+            width: 200px;
+        }
+        .search-box input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
             margin-top: 20px;
-            align-items: centre
-        }
-
-        #location,
-        #temperature,
-        #condition{
-            margin-top: 30px;
         }
     </style>
-
 </head>
 <body>
-    <h1>Weather Site</h1>
-    <form id="search-form" action="/weather" method="GET">
-        <input type="text" name="location" id="location" placeholder="Enter location">
-        <button type="submit">Search</button>
-    </form>
-    <div id="weather-info">
-        <h2 id="location"></h2>
-        <p id="temperature"></p>
-        <p id="condition"></p>
+    <h1>Weather App</h1>
+    <div class="search-box">
+        <form action="/" method="POST">
+            <input type="text" name="location" placeholder="Enter location">
+            <input type="submit" value="Search">
+        </form>
     </div>
+    {% if weather %}
+        <div class="result">
+            <h2>{{ weather.location }}</h2>
+            <p>Temperature: {{ weather.temperature }}°C</p>
+            <p>Condition: {{ weather.condition }}</p>
+            <p>FeelsLike: {{ weather.FeelsLike }}°C</p>
+        </div>
+    {% endif %}
 </body>
 </html>
