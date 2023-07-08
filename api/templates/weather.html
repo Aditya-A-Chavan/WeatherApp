@@ -68,9 +68,9 @@
             <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
             <script>
                
-                var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                var deviceismobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
                 
-                if (isMobile) {
+                if (deviceismobile) {
                     window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
                     window.myWidgetParam.push({
                         id: 7,
