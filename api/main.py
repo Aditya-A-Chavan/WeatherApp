@@ -25,7 +25,7 @@ def weather():
                 'MaxTemp': round(data['main']['temp_max']),
                 'MinTemp': round(data['main']['temp_min'])
             }
-            latitude = {
+            latitude =[
                 'lat': data1[0]['lat'],
                 'long': data1[0]['lon']
             }
