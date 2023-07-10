@@ -40,6 +40,9 @@
             margin-top: 20px;
             text-align: center;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -55,49 +58,36 @@
         {% if weather %}
             <div class="result" id="openweathermap-widget-11">
                 <h2>{{ weather.location }}</h2>
-                <p>Temperature: {{ weather.temperature }}°C</p>
-                <p>Condition: {{ weather.condition }}</p>
-                <p>FeelsLike: {{ weather.FeelsLike }}°C</p>
-                <p>Max Temperature: {{ weather.MaxTemp }}°C</p>
-                <p>Min Temperature: {{ weather.MinTemp }}°C</p>
-                <p>Latitude: {{ latitude.lat }}</p>
-                <p>Longitude: {{ latitude.long }}</p>
+                <p>Temperature: {{ weather.temperature }}°C<br><br>
+                    Condition: {{ weather.condition }}<br><br>
+                    FeelsLike: {{ weather.FeelsLike }}°C<br><br>
+                    Max Temperature: {{ weather.MaxTemp }}°C<br><br>
+                    Min Temperature: {{ weather.MinTemp }}°C<br><br>
+                    Latitude: {{ latitude.lat }}<br><br>
+                    Longitude: {{ latitude.long }}<br><br>
+                </p>
+                <p id="button" onclick="toggleData()">Click here to see Forecast</p>
+                <p id="hiddenData" class="hidden">
+                
+                </p>
             </div>
-            <div id="openweathermap-widget-1"></div>
-            <div id="openweathermap-widget-7"></div>
-            <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
             <script>
-               
-                var deviceismobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                
-                if (deviceismobile) {
-                    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-                    window.myWidgetParam.push({
-                        id: 7,
-                        cityid: '{{ city_id }}',
-                        appid: 'c70f6f3bf64ab7edc365a23b47a6f5d6',
-                        units: 'metric',
-                        containerid: 'openweathermap-widget-7'
-                    });
-                } else {
-                    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-                    window.myWidgetParam.push({
-                        id: 1,
-                        cityid: '{{ city_id }}',
-                        appid: 'c70f6f3bf64ab7edc365a23b47a6f5d6',
-                        units: 'metric',
-                        containerid: 'openweathermap-widget-1'
-                    });
-                }
-                
-                (function() {
-                    var script = document.createElement('script');
-                    script.async = true;
-                    script.charset = "utf-8";
-                    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(script, s);
-                })();
+                function toggleData() {
+                    var hiddenData = document.getElementById("hiddenData");
+                    if (hiddenData.style.display === "none") {
+                        hiddenData.style.display = "block";
+                    } else {
+                        hiddenData.style.display = "none";
+                    }
+                    var forecaseData = '{{ forecast_data }}';
+                    hiddenData.innerHTML = "";
+
+                    var datasets = forecaseData.split("\n");
+                    for (var i = 0; i < datasets.length;i++){
+                        var dataset = datasets[i];
+                        hiddenData.innerHTML += dataset + "<br>";
+                    }
+        }
             </script>
         {% endif %}
     </div>
