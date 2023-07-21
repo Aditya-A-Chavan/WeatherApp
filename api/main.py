@@ -71,15 +71,15 @@ def current_weather():
                 date = (start + datetime.timedelta(days = day)).isoformat()
                 res.append(date)
 
-            dates_data = {
-                'date1': res[0],
-                'date2': res[1],
-                'date3': res[2],
-                'date4': res[3],
+            Dates_data = {
+                'Date1': res[0],
+                'Date2': res[1],
+                'Date3': res[2],
+                'Date4': res[3],
                 'date5': res[4]
             }
 
-            return render_template('weather.html', weather=weather_data, forecast_data=all_data_combined, latitude=latitude, api_key=api_key, city_id=city_id, dates_data=dates_data)
+            return render_template('weather.html', weather=weather_data, forecast_data=all_data_combined, latitude=latitude, api_key=api_key, city_id=city_id, Dates_data=Dates_data)
         else:
             error_message = data['message']
             return render_template('weather.html', error=error_message)
