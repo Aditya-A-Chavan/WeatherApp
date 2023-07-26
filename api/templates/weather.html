@@ -66,32 +66,13 @@
                     Latitude: {{ latitude.lat }}<br><br>
                     Longitude: {{ latitude.long }}<br><br>
                 </p>
-                <p id="button" onclick="toggleData()">Click here to see Forecast</p>
-                <p id="hiddenData" class="hidden">
+                <p>Forecast Dates</p>
                     {{ Dates_data.Date1 }} <br>
                     {{Dates_data.Date2}} <br>
                     {{Dates_data.Date3}} <br>
                     {{Dates_dates.Date4}}<br>
                 </p>
             </div>
-            <script>
-                function toggleData() {
-                    var hiddenData = document.getElementById("hiddenData");
-                    if (hiddenData.style.display === "none") {
-                        hiddenData.style.display = "block";
-                    } else {
-                        hiddenData.style.display = "none";
-                    }
-                    var forecaseData = '{{ forecast_data }}';
-                    hiddenData.innerHTML = "";
-
-                    var datasets = forecaseData.split("\n");
-                    for (var i = 0; i < datasets.length;i++){
-                        var dataset = datasets[i];
-                        hiddenData.innerHTML += dataset + "<br>";
-                    }
-        }
-            </script>
         {% endif %}
     </div>
 </body>
